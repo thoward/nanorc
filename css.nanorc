@@ -1,10 +1,37 @@
-## Here is an example for css files.
-##
-
 syntax "css" "\.css$"
-color brightred     "."
-color brightyellow  start="\{" end="\}"
-color brightwhite           start=":" end="[;^\{]"
-color brightblue    ":active|:focus|:hover|:link|:visited|:link|:after|:before|$"
-color brightblue    start="\/\*" end="\\*/"
-color green         ";|:|\{|\}"
+
+# Selector
+icolor red "((^| +|[^a-z0-9_-]+)(\*)([^a-z0-9_-]+| *\{|\$))"
+icolor red "((^| +|[^a-z0-9_-]+)(((\.|\#| )[a-z0-9_-])+)([^a-z0-9_-]+|\,|\:| *\{|\$))"
+## Attribute
+icolor brightred "(\[([a-z-])+((\$|\^|\~|\*|\|)?=\"\w*\")?\])"
+## Pseudo
+color brightred "(\:(root)( +|\,|$))"
+color brightred "(\:(enabled|disabled|checked)( +|\,|$))"
+color brightred "(\:(active|focus|hover|lang|link|visited)( +|\,|$))"
+color brightred "(\:(first-child|last-child|only-child)( +|\,|$))"
+color brightred "(\:(first-of-type|last-of-type|only-of-type)( +|\,|$))"
+color brightred "(\:(nth-child|nth-last-child)( *\())"
+color brightred "(\:(nth-of-type|nth-of-last-type)( *\())"
+color brightred "(\:(not|lang)( *\())"
+color brightred "(\:(empty|target)( +|\,|$))"
+color brightred "(\:{1,2}(after|before)( +|\,|$))"
+color brightred "(\:{1,2}(first-letter|last-letter|first-line|last-line)( +|\,|$))"
+
+# Rules
+## Properties
+color green start="\{" end="\}"
+## Values
+icolor brightyellow start="(\:( ?))" end="((\;)?$)"
+
+# Values within parentheses
+icolor brightyellow "(\((.*)\))"
+
+# Special characters
+color brightwhite "(\;|\:|\{|\}|\(|\)|\,)"
+
+# Comments
+color brightblue start="\/\*" end="\*\/"
+
+# Highlight trailing whitespaces
+color ,green "[[:space:]]+$"
