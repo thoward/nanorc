@@ -12,6 +12,7 @@ set const
 set multibuffer
 
 # syntax files
+include "~/.nano/nanorc.nanorc"
 include "~/.nano/apacheconf.nanorc"
 include "~/.nano/asm.nanorc"
 include "~/.nano/c.nanorc"
@@ -32,7 +33,6 @@ include "~/.nano/lua.nanorc"
 include "~/.nano/man.nanorc"
 include "~/.nano/markdown.nanorc"
 include "~/.nano/mutt.nanorc"
-include "~/.nano/nanorc.nanorc"
 include "~/.nano/patch.nanorc"
 include "~/.nano/perl.nanorc"
 include "~/.nano/php.nanorc"
