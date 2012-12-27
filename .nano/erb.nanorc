@@ -1,6 +1,10 @@
-## Here is an example for Ruby.
-##
-syntax "ruby" "\.rb$" "Gemfile" "config.ru" "Rakefile" "Capfile" "Vagrantfile"
+## A HTML+Ruby set for Syntax Highlighting .erb files (Embedded RubyRails Views etc) ERB
+## (c) 2009, Georgios V. Michalakidis - g.michalakidis@computer.org
+syntax "erb" "\.erb$" "\.rhtml$"
+color blue start="<" end=">"
+## Strings, double-quoted
+color yellow "\"([^\"]|(\\\")|^$)*\"" "%[QW]?\{[^}]*\}" "%[QW]?\([^)]*\)" "%[QW]?<[^>]*>" "%[QW]?\[[^]]*\]" "%[QW]?\$[^$]*\$" "%[QW]?\^[^^]*\^" "%[QW]?![^!]*!"
+color brightblue start="<%=" end="%>"
 ## Asciibetical list of reserved words
 color red "(^|\ )(BEGIN|END|alias|and|begin|break|case|class|def|defined\?|do|else|elsif|end|ensure|false|for|if|in|include|module|next|nil|not|or|redo|require|rescue|retry|return|self|super|then|true|undef|unless|until|when|while|yield)($|\ )"
 ## Constants
@@ -16,8 +20,6 @@ color brightmagenta "/([^/]|(\\/))*/[iomx]*" "%r\{([^}]|(\\}))*\}[iomx]*"
 ## Shell command expansion is in `backticks` or like %x{this}.  These are
 ## "double-quotish" (to use a perlism).
 color green "`[^`]*`" "%x\{[^}]*\}"
-## Strings, double-quoted
-color yellow "\"([^\"]|(\\\")|^$)*\"" "%[QW]?\{[^}]*\}" "%[QW]?\([^)]*\)" "%[QW]?<[^>]*>" "%[QW]?\[[^]]*\]" "%[QW]?\$[^$]*\$" "%[QW]?\^[^^]*\^" "%[QW]?![^!]*!"
 ## Expression substitution.  These go inside double-quoted strings,
 ## "like #{this}".
 color brightyellow "#\{[^}]*\}"
